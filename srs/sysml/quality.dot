@@ -1,0 +1,41 @@
+digraph G {
+  rankdir=LR; nodesep=0.1; ranksep=0.4; 
+  node [shape=box, fontname="Helvetica", fontsize=15, style=filled, fillcolor=white, color="#334155", margin="0.10,0.06"];
+  edge [color="#334155", arrowhead=none];
+  root [label=<<table border="0" cellborder="0" cellspacing="0"><tr><td><font point-size="11">«requirement»</font></td></tr><tr><td><b>FreelanceDeskSpec</b></td></tr><tr><td><font point-size="11">Нефункциональные требования</font></td></tr></table>>, fillcolor="#e2e8f0"];
+  
+  g1 [label=<<font point-size="11">«requirement»</font><br/><b>Внешние интерфейсы</b>>, fillcolor="#e2e8f0"];
+  g2 [label=<<font point-size="11">«requirement»</font><br/><b>Качество обслуживания</b>>, fillcolor="#e2e8f0"];
+  g3 [label=<<font point-size="11">«requirement»</font><br/><b>Соответствие стандартам</b>>, fillcolor="#e2e8f0"];
+  g4 [label=<<font point-size="11">«requirement»</font><br/><b>Проектирование и реализация</b>>, fillcolor="#e2e8f0"];
+  root -> g1; root -> g2; root -> g3; root -> g4;
+  
+  i1 [label=<<b>REQ-INT-001</b> · Веб-интерфейс на русском>];
+  i2 [label=<<b>REQ-INT-002</b> · Документы в формате PDF A4>];
+  i3 [label=<<b>REQ-INT-003</b> · Отправка почты по SMTP>];
+  i4 [label=<<b>REQ-INT-004</b> · Хранение в PostgreSQL>];
+  q1 [label=<<b>REQ-PERF-001</b> · Время отклика страниц>];
+  q2 [label=<<b>REQ-PERF-002</b> · Время формирования PDF>];
+  q3 [label=<<b>REQ-SEC-001</b> · Хранение паролей>];
+  q4 [label=<<b>REQ-SEC-002</b> · Изоляция данных>];
+  q5 [label=<<b>REQ-SEC-003</b> · Защита веб-приложения>];
+  q6 [label=<<b>REQ-SEC-004</b> · Сеансы и блокировка входа>];
+  q7 [label=<<b>REQ-REL-001</b> · Резервные копии>];
+  q8 [label=<<b>REQ-REL-002</b> · Уникальность номеров>];
+  q9 [label=<<b>REQ-AVAIL-001</b> · Доступность сервиса>];
+  q10 [label=<<b>REQ-OBS-001</b> · Журналы и мониторинг>];
+  c1 [label=<<b>REQ-COMP-001</b> · Персональные данные>];
+  c2 [label=<<b>REQ-COMP-002</b> · Реквизиты документов>];
+  d1 [label=<<b>REQ-INST-001</b> · Установка в контейнерах>];
+  d2 [label=<<b>REQ-BUILD-001</b> · Сборка Maven>];
+  d3 [label=<<b>REQ-PORT-001</b> · Платформы>];
+  d4 [label=<<b>REQ-MAINT-001</b> · Модульность и тесты>];
+  d5 [label=<<b>REQ-COST-001</b> · Стоимость владения>];
+  d6 [label=<<b>REQ-DEAD-001</b> · Итерации и сроки>];
+  d7 [label=<<b>REQ-POC-001</b> · PDF с кириллицей>];
+  d8 [label=<<b>REQ-CM-001</b> · Управление изменениями>];
+  g1 -> i1; g1 -> i2; g1 -> i3; g1 -> i4;
+  g2 -> q1; g2 -> q2; g2 -> q3; g2 -> q4; g2 -> q5; g2 -> q6; g2 -> q7; g2 -> q8; g2 -> q9; g2 -> q10;
+  g3 -> c1; g3 -> c2;
+  g4 -> d1; g4 -> d2; g4 -> d3; g4 -> d4; g4 -> d5; g4 -> d6; g4 -> d7; g4 -> d8;
+}

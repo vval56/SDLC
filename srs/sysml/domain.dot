@@ -1,0 +1,23 @@
+digraph G {
+  rankdir=TB; nodesep=0.3; ranksep=0.7;
+  node [shape=plain, fontname="Helvetica", fontsize=14];
+  edge [color="#334155", fontname="Helvetica", fontsize=12, arrowhead=none, labeldistance=1.6];
+  User [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3" color="#334155"><tr><td bgcolor="#e2e8f0"><b>User</b></td></tr><hr/><tr><td align="left">id, email, passwordHash,<br align="left"/>fullName, unp, bankDetails<br align="left"/></td></tr></table>>];
+  Client [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3" color="#334155"><tr><td bgcolor="#e2e8f0"><b>Client</b></td></tr><hr/><tr><td align="left">id, name, contactPerson,<br align="left"/>email, phone, unp, details,<br align="left"/>archived<br align="left"/></td></tr></table>>];
+  Interaction [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3" color="#334155"><tr><td bgcolor="#e2e8f0"><b>Interaction</b></td></tr><hr/><tr><td align="left">id, date, type, note<br align="left"/></td></tr></table>>];
+  Project [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3" color="#334155"><tr><td bgcolor="#e2e8f0"><b>Project</b></td></tr><hr/><tr><td align="left">id, title, description, status,<br align="left"/>pricingType, budget, rate,<br align="left"/>startDate, deadline<br align="left"/></td></tr></table>>];
+  Milestone [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3" color="#334155"><tr><td bgcolor="#e2e8f0"><b>Milestone</b></td></tr><hr/><tr><td align="left">id, title, dueDate, done<br align="left"/></td></tr></table>>];
+  StatusChange [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3" color="#334155"><tr><td bgcolor="#e2e8f0"><b>StatusChange</b></td></tr><hr/><tr><td align="left">id, fromStatus, toStatus,<br align="left"/>changedAt<br align="left"/></td></tr></table>>];
+  Invoice [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3" color="#334155"><tr><td bgcolor="#e2e8f0"><b>Invoice</b></td></tr><hr/><tr><td align="left">id, number, issueDate, dueDate,<br align="left"/>vatRate, total, status<br align="left"/></td></tr></table>>];
+  InvoiceItem [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3" color="#334155"><tr><td bgcolor="#e2e8f0"><b>InvoiceItem</b></td></tr><hr/><tr><td align="left">id, name, quantity, unit, price<br align="left"/></td></tr></table>>];
+  Act [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3" color="#334155"><tr><td bgcolor="#e2e8f0"><b>Act</b></td></tr><hr/><tr><td align="left">id, number, actDate, total, status<br align="left"/></td></tr></table>>];
+  User -> Client [taillabel="1", headlabel="0..*"];
+  Client -> Interaction [taillabel="1", headlabel="0..*"];
+  Client -> Project [taillabel="1", headlabel="0..*"];
+  Project -> Milestone [taillabel="1", headlabel="0..*"];
+  Project -> StatusChange [taillabel="1", headlabel="0..*"];
+  Project -> Invoice [taillabel="1", headlabel="0..*"];
+  Invoice -> InvoiceItem [taillabel="1", headlabel="1..*"];
+  Project -> Act [taillabel="1", headlabel="0..*"];
+  Invoice -> Act [taillabel="0..1", headlabel="0..*", style=dashed];
+}
