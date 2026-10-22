@@ -7,8 +7,9 @@ digraph G {
   g1 [label=<<font point-size="11">«requirement»</font><br/><b>Учёт клиентов</b>>, fillcolor="#e2e8f0"];
   g2 [label=<<font point-size="11">«requirement»</font><br/><b>Проекты и сроки</b>>, fillcolor="#e2e8f0"];
   g3 [label=<<font point-size="11">«requirement»</font><br/><b>Финансовые документы</b>>, fillcolor="#e2e8f0"];
+  g5 [label=<<font point-size="11">«requirement»</font><br/><b>Выгрузка данных</b>>, fillcolor="#e2e8f0"];
   g4 [label=<<font point-size="11">«requirement»</font><br/><b>Обзор и доступ</b>>, fillcolor="#e2e8f0"];
-  root -> g1; root -> g2; root -> g3; root -> g4;
+  root -> g1; root -> g2; root -> g3; root -> g4; root -> g5;
   
   r2  [label=<<b>REQ-FUNC-002</b> · Карточки клиентов>];
   r3  [label=<<b>REQ-FUNC-003</b> · Поиск и фильтрация>];
@@ -17,17 +18,19 @@ digraph G {
   r5  [label=<<b>REQ-FUNC-005</b> · Статусы проектов>];
   r6  [label=<<b>REQ-FUNC-006</b> · Этапы со сроками>];
   r7  [label=<<b>REQ-FUNC-007</b> · Контроль дедлайнов>];
-  r14 [label=<<b>REQ-FUNC-014</b> · Доска статусов>, fillcolor="#fef3c7"];
-  r15 [label=<<b>REQ-FUNC-015</b> · Напоминания по e-mail>, fillcolor="#fef3c7"];
+  r14 [label=<<b>REQ-FUNC-014</b> · Доска статусов>];
+  r15 [label=<<b>REQ-FUNC-015</b> · Напоминания по e-mail>];
   r10 [label=<<b>REQ-FUNC-010</b> · Формирование счёта>];
   r11 [label=<<b>REQ-FUNC-011</b> · Формирование акта>];
   r12 [label=<<b>REQ-FUNC-012</b> · Экспорт в PDF>];
   r13 [label=<<b>REQ-FUNC-013</b> · Статусы счетов>];
-  r16 [label=<<b>REQ-FUNC-016</b> · Отправка клиенту>, fillcolor="#fef3c7"];
+  r16 [label=<<b>REQ-FUNC-016</b> · Отправка клиенту>];
+  r17 [label=<<b>REQ-FUNC-017</b> · Напоминание клиенту>, fillcolor="#fef3c7"];
+  r18 [label=<<b>REQ-FUNC-018</b> · Выгрузка в CSV>, fillcolor="#fef3c7"];
   r1  [label=<<b>REQ-FUNC-001</b> · Регистрация и вход>];
   r8  [label=<<b>REQ-FUNC-008</b> · Дашборд>];
   g1 -> r2; g1 -> r3; g1 -> r9;
   g2 -> r4; g2 -> r5; g2 -> r6; g2 -> r7; g2 -> r14; g2 -> r15;
-  g3 -> r10; g3 -> r11; g3 -> r12; g3 -> r13; g3 -> r16;
+  g3 -> r10; g3 -> r11; g3 -> r12; g3 -> r13; g3 -> r16; g3 -> r17; g5 -> r18;
   g4 -> r1; g4 -> r8;
 }

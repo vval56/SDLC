@@ -1,5 +1,5 @@
 package FreelanceDeskRequirements {
-    doc /* Требования к веб-приложению FreelanceDesk (CRM-трекер для фрилансера). Версия 0.2. */
+    doc /* Требования к веб-приложению FreelanceDesk (CRM-трекер для фрилансера). Версия 0.2 (после рецензирования). */
 
     import ScalarValues::*;
 
@@ -94,6 +94,17 @@ package FreelanceDeskRequirements {
                 doc /* Система должна отправлять счёт и акт клиенту по e-mail. */
                 attribute :>> priority = "Could";
             }
+            requirement <'REQ-FUNC-017'> clientReminders : FunctionalRequirement {
+                doc /* Система должна отправлять клиенту напоминание о просроченном счёте. */
+                attribute :>> priority = "Could";
+            }
+        }
+
+        requirement dataExport {
+            requirement <'REQ-FUNC-018'> csvExport : FunctionalRequirement {
+                doc /* Система должна выгружать списки счетов и проектов в CSV. */
+                attribute :>> priority = "Should";
+            }
         }
 
         requirement overviewAndAccess {
@@ -134,6 +145,8 @@ package FreelanceDeskRequirements {
     satisfy pdfExport by freelanceDesk.billingModule;
     satisfy dashboard by freelanceDesk.dashboardModule;
     satisfy deadlineReminders by freelanceDesk.notificationModule;
+    satisfy clientReminders by freelanceDesk.notificationModule;
+    satisfy csvExport by freelanceDesk.billingModule;
     satisfy authentication by freelanceDesk.securityModule;
     satisfy dataIsolation by freelanceDesk.securityModule;
 
