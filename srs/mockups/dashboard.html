@@ -1,0 +1,21 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Дашборд</title><link rel="stylesheet" href="style.css"><style>.g2{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}.g2 .card{min-width:0;padding:14px}.g2 td{font-size:13px;padding:8px 6px}.g2 td:first-child{white-space:normal}.g2 td.n{white-space:nowrap}</style></head><body>
+<aside><div class="logo">Freelance<span>Desk</span></div><a class="on">Дашборд</a><a>Клиенты</a><a>Проекты</a><a>Доска статусов</a><a>Счета</a><a>Акты</a><a>Настройки</a><div class="user">Иван Петров<br>ip@example.com · Выйти</div></aside>
+<main>
+<div class="top"><h1>Дашборд</h1><div><span class="btn sec">+ Клиент</span> <span class="btn">+ Новый проект</span></div></div>
+<div class="grid g4" style="margin-bottom:14px">
+<div class="card kpi"><div class="l">Активные проекты</div><div class="v">6</div></div>
+<div class="card kpi"><div class="l">Доход за октябрь</div><div class="v">3 450 BYN</div></div>
+<div class="card kpi"><div class="l">Ожидает оплаты</div><div class="v">2 100 BYN</div></div>
+<div class="card kpi"><div class="l">Просрочено</div><div class="v red">2</div></div></div>
+<div class="grid g2">
+<div class="card"><h2>Ближайшие дедлайны</h2><table><tr><th>Срок</th><th>Проект / этап</th><th>Клиент</th><th>Статус</th></tr>
+<tr><td class="dl-late n">15.10.2026 (−4 дн.)</td><td>Лендинг «Вектор» / Вёрстка</td><td>ООО «Вектор»</td><td><span class="badge b-work">В работе</span></td></tr>
+<tr><td class="dl-late n">17.10.2026 (−2 дн.)</td><td>Бот поддержки / Тестирование</td><td>ИП Кравец А. С.</td><td><span class="badge b-rev">На проверке</span></td></tr>
+<tr><td class="dl-soon n">21.10.2026 (2 дн.)</td><td>Интернет-магазин / Каталог</td><td>ЗАО «Нордлайн»</td><td><span class="badge b-work">В работе</span></td></tr>
+<tr><td class="dl-soon n">22.10.2026 (3 дн.)</td><td>Логотип и стиль / Финальные макеты</td><td>Студия «Лист»</td><td><span class="badge b-work">В работе</span></td></tr>
+<tr><td class="n">28.10.2026 (9 дн.)</td><td>CRM-интеграция / ТЗ</td><td>ООО «Мегатрейд»</td><td><span class="badge b-neg">Согласование</span></td></tr></table></div>
+<div class="card"><h2>Проекты по статусам</h2>
+<table><tr><td><span class="badge b-lead">Лид</span></td><td>2</td></tr><tr><td><span class="badge b-neg">Согласование</span></td><td>1</td></tr><tr><td><span class="badge b-work">В работе</span></td><td>4</td></tr><tr><td><span class="badge b-rev">На проверке</span></td><td>1</td></tr><tr><td><span class="badge b-done">Завершён (не оплачен)</span></td><td>1</td></tr><tr><td><span class="badge b-paid">Оплачен</span></td><td>12</td></tr></table>
+<h2 style="margin-top:16px">Неоплаченные счета</h2>
+<table><tr><td class="n">СЧ-2026-014</td><td class="n">1 200 BYN</td><td><span class="badge b-late">Просрочен</span></td></tr><tr><td class="n">СЧ-2026-016</td><td class="n">900 BYN</td><td><span class="badge b-sent">Выставлен</span></td></tr></table></div>
+</div></main></body></html>
