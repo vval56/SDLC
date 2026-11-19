@@ -1,0 +1,12 @@
+digraph G {
+  rankdir=TB; nodesep=0.6; ranksep=0.8;
+  node [fontname="Helvetica", fontsize=14, style="filled", color="#334155", penwidth=1.2];
+  edge [color="#334155", fontname="Helvetica", fontsize=12];
+  F [label="Фрилансер\n[пользователь]\nВедёт клиентов, проекты,\nсчета и акты", shape=box, style="rounded,filled", fillcolor="#e2e8f0"];
+  S [label="FreelanceDesk\n[система]\nВеб-приложение учёта клиентов,\nпроектов, сроков, счетов и актов", shape=box, style="rounded,filled", fillcolor="#bfdbfe", width=3.4, height=1.5];
+  M [label="SMTP-сервер\n[внешняя система]\nОтправка писем", shape=box, style="rounded,filled", fillcolor="#f1f5f9"];
+  C [label="Клиент фрилансера\n[внешний участник]\nПолучает счета, акты и\nнапоминания по e-mail", shape=box, style="rounded,filled", fillcolor="#f1f5f9"];
+  F -> S [label="работает через браузер\n(HTTPS)"];
+  S -> M [label="письма (SMTP)"];
+  M -> C [label="доставка", style=dashed];
+}

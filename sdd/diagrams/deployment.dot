@@ -1,0 +1,20 @@
+digraph G {
+  rankdir=TB; nodesep=0.4; ranksep=0.7; compound=true;
+  node [fontname="Helvetica", fontsize=13, shape=box, style="rounded,filled", fillcolor="#f1f5f9", color="#334155"];
+  edge [color="#334155", fontname="Helvetica", fontsize=12];
+  BR [label="Браузер\n(Chrome, Firefox,\nSafari, Edge)", fillcolor="#e2e8f0"];
+  subgraph cluster_host { label="Сервер фрилансера (Linux, 2 vCPU, 2 ГБ) — Docker Compose"; labelloc=b; fontname="Helvetica-Bold"; fontsize=13; style="rounded,filled"; fillcolor="#eff6ff"; color="#334155";
+    PX [label="proxy\nCaddy: HTTPS, сертификат\nTLS, перенаправление на :8080"];
+    AP [label="app\nJRE 21 + Spring Boot jar\nпорт 8080", fillcolor="#bfdbfe"];
+    PG [label="db\nPostgreSQL 16", shape=cylinder, fillcolor="#bfdbfe"];
+    VL [label="volume pgdata", shape=folder, fillcolor="#f1f5f9"];
+    BK [label="backup\nкронзадача pg_dump\nежедневно, 7 копий"];
+    BV [label="volume backups", shape=folder, fillcolor="#f1f5f9"];
+  }
+  SM [label="SMTP-сервер\n(внешний)", fillcolor="#e2e8f0"];
+  BR -> PX [label="HTTPS :443"];
+  PX -> AP [label="HTTP :8080"];
+  AP -> PG [label="JDBC :5432"];
+  PG -> VL; BK -> PG [label="pg_dump"]; BK -> BV;
+  AP -> SM [label="SMTP"];
+}
