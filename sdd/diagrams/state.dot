@@ -1,0 +1,12 @@
+digraph G {
+  rankdir=TB; nodesep=0.35; ranksep=0.5;
+  node [fontname="Helvetica", fontsize=13, shape=box, style="rounded,filled", fillcolor="#f1f5f9", color="#334155"];
+  edge [color="#334155", fontname="Helvetica", fontsize=11];
+  start [shape=circle, label="", width=0.2, style=filled, fillcolor="#334155"];
+  lead [label="Лид"]; neg [label="Согласование"]; work [label="В работе"]; rev [label="На проверке"]; done [label="Завершён"]; paid [label="Оплачен", fillcolor="#bbf7d0", peripheries=2]; pause [label="На паузе"]; canc [label="Отменён", fillcolor="#fecaca"];
+  start -> lead [label="создание"];
+  lead -> neg; neg -> work; work -> rev; rev -> done; done -> paid; rev -> work [label="доработка"];
+  work -> pause; pause -> work;
+  lead -> canc; neg -> canc; work -> canc; pause -> canc;
+  canc -> lead [label="возврат\n(REQ-FUNC-005)", style=dashed];
+}

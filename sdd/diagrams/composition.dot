@@ -1,0 +1,16 @@
+digraph G {
+  rankdir=TB; nodesep=0.5; ranksep=0.55;
+  node [fontname="Helvetica", fontsize=13, shape=box, style="rounded,filled", fillcolor="#f1f5f9", color="#334155"];
+  edge [color="#334155", fontname="Helvetica", fontsize=12];
+  B [label="Браузер фрилансера", fillcolor="#e2e8f0"];
+  W [label="Веб-слой (controller)\nSpring Security: сеансы, CSRF\nAuthController, ClientController, ProjectController,\nBillingController, DashboardController\nшаблоны Thymeleaf", fillcolor="#dbeafe", width=5.6];
+  S [label="Слой сервисов (service)\nUserService, ClientService, ProjectService,\nStatusPolicy, DeadlineService, InvoiceService,\nNumberingService, ActService, DashboardService,\nPdfService, MailService, ReminderScheduler", fillcolor="#dbeafe", width=5.6];
+  R [label="Слой доступа к данным (repository)\nSpring Data JPA: репозитории пользователей, клиентов,\nпроектов, счетов, актов, счётчиков номеров", fillcolor="#dbeafe", width=5.6];
+  DB [label="PostgreSQL\n(схему создаёт Flyway)", shape=cylinder, fillcolor="#bfdbfe"];
+  SM [label="SMTP-сервер", fillcolor="#e2e8f0"];
+  B -> W [label=" HTTPS"];
+  W -> S [label=" вызовы сервисов"];
+  S -> R [label=" репозитории"];
+  R -> DB [label=" JDBC"];
+  S -> SM [label=" SMTP (MailService)"];
+}
